@@ -1055,8 +1055,8 @@ function generateProtocol(){
 
   // Generate patient header
   const ptName=document.getElementById('ptName').value||'[Patient Name]';
-  const ptDob=document.getElementById('ptDob').value?new Date(document.getElementById('ptDob').value).toLocaleDateString():'';
-  const ptDate=document.getElementById('ptDate').value?new Date(document.getElementById('ptDate').value).toLocaleDateString():new Date().toLocaleDateString();
+  const ptDob=document.getElementById('ptDob').value?(([y,m,d])=>m+'/'+d+'/'+y)(document.getElementById('ptDob').value.split('-')):'';
+  const ptDate=document.getElementById('ptDate').value?(([y,m,d])=>m+'/'+d+'/'+y)(document.getElementById('ptDate').value.split('-')):new Date().toLocaleDateString();
   const ptAcc=document.getElementById('ptAccession').value||'';
 
   let html=`
