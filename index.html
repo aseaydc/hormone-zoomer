@@ -316,7 +316,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:#222;m
       </div>
     </div>
     <div class="section-body" id="body-creatinine">
-      <div style="background:#fffbe6;border-left:3px solid #e6b800;padding:8px 12px;margin-bottom:8px;font-size:12px;color:#555;">Creatinine is used to normalize hormone concentrations for urine dilution. Low creatinine indicates dilute urine (overhydration/poor kidney concentration); high indicates dehydration or increased muscle breakdown.</div>
+      <div style="background:#fffbe6;border-left:3px solid #e6b800;padding:8px 12px;margin-bottom:8px;font-size:12px;color:#555;">Creatinine is used to normalize hormone concentrations for urine dilution. Low creatinine indicates dilute urine (overhydration/poor kidney concentration); high most likely reflects increased muscle catabolism from a sedentary lifestyle.</div>
       <div class="marker-row"><div><div class="marker-name">Creatinine – 1st Morning</div><div class="marker-sub">Urine dilution index for 1st morning collection</div></div><div class="hl-group"><button class="hl-btn h" onclick="setMarker('Creat1','h',this)">HIGH</button><button class="hl-btn l" onclick="setMarker('Creat1','l',this)">LOW</button><button class="hl-btn n active" onclick="setMarker('Creat1','n',this)">NL</button></div></div>
       <div class="marker-row" style="background:#f9faff;"><div><div class="marker-name">Creatinine – 2nd Morning</div></div><div class="hl-group"><button class="hl-btn h" onclick="setMarker('Creat2','h',this)">HIGH</button><button class="hl-btn l" onclick="setMarker('Creat2','l',this)">LOW</button><button class="hl-btn n active" onclick="setMarker('Creat2','n',this)">NL</button></div></div>
       <div class="marker-row"><div><div class="marker-name">Creatinine – Evening</div></div><div class="hl-group"><button class="hl-btn h" onclick="setMarker('CreatE','h',this)">HIGH</button><button class="hl-btn l" onclick="setMarker('CreatE','l',this)">LOW</button><button class="hl-btn n active" onclick="setMarker('CreatE','n',this)">NL</button></div></div>
@@ -456,6 +456,7 @@ const PRODUCTS = {
   'Juniper Intrinsic':      {dose:'1 full dropper 2x daily in warm water (acute: 2 droppers 6x daily; chronic: 2 droppers 2x daily)', cat:'Botanical'},
     'Adrenal LF':                  {dose:'2 capsules 2x daily', cat:'Capsule'},
   'HPA Axis LF':                 {dose:'2 capsules daily', cat:'Capsule'},
+  'Thyro LF':                    {dose:'3 capsules daily (acute: 3 capsules 3x daily; chronic: 3 capsules 2x daily)', cat:'Capsule'},
   'Adreno Code':                 {dose:'1 full dropper 2x daily in warm water', cat:'Code'},
   'Licro Intrinsic':             {dose:'1 full dropper 2x daily in warm water', cat:'Botanical'},
   'Hypothal Code':               {dose:'1 full dropper 2x daily in warm water', cat:'Code'},
@@ -537,7 +538,6 @@ const RULES = [
   {n:'Melatonin Liposome Spray', w:'Melatonin directly modulates nocturnal cortisone; 5mg shown to normalize elevated night cortisone and improve sleep quality'},
   {n:'5-HTP Liposome Spray', w:'Serotonin → melatonin supports evening HPA axis downregulation and normalizes nocturnal cortisone rhythm'},
   {n:'Magnesium BisGlycinate + L-Taurine', w:'Suppresses nocturnal HPA activation; critical for reducing night cortisone and improving sleep architecture'},
-  {n:'Licro Intrinsic', w:'Glycyrrhizic acid inhibits 11β-HSD2 and modulates nocturnal cortisol-cortisone interconversion'},
 ], flag:'Elevated nocturnal or insomnia cortisone reflects persistent HPA activation during sleep. This disrupts restorative sleep, increases metabolic and cardiovascular risk, and perpetuates HPA dysregulation.'},
 
 // ── ESTROGENS ────────────────────────────────────────────────
@@ -664,7 +664,7 @@ const RULES = [
   {n:'Adrenal LF', w:'Adaptogenic adrenal regulation may help normalize androstenedione output'},
 ]},
 {id:'ET_h', cond:()=>s('ET')=='h', section:'androgen', label:'High Etiocholanolone (5β-T metabolite)', products:[
-  {n:'HepataGest Powder', w:'Supports hepatic 5β-reduction enzyme pathways and conjugation of etiocholanolone for urinary excretion'},
+  {n:'HepataGest Powder', w:'Supports hepatic Phase II glucuronidation and conjugation of etiocholanolone for urinary excretion; does not upregulate 5β-reductase activity'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II liver detoxification support'},
 ]},
 {id:'DHT_h', cond:()=>s('DHT')=='h', section:'androgen', label:'High 5α-DHT', products:[
@@ -674,7 +674,8 @@ const RULES = [
 ], flag:'For high DHT (BPH, androgenic alopecia, female hirsutism): Saw Palmetto is the gold-standard 5α-reductase inhibitor — NOT available in the Physica line. Please provide an alternate company to address this marker specifically.'},
 {id:'DHT_l', cond:()=>s('DHT')=='l', section:'androgen', label:'Low 5α-DHT', products:[
   {n:'DHEA Liposomal Drops', w:'Increases upstream testosterone available for 5α-reductase conversion to DHT'},
-  {n:'Zinc-Oro Liposome Composite', w:'Zinc supports enzyme activity including 5α-reductase'},
+  {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor to support testosterone and downstream DHT synthesis'},
+  {n:'Adrenal LF', w:'Supports adrenal androgen output (DHEA/androstenedione) as substrate for DHT pathway'},
 ]},
 {id:'3adiol_h', cond:()=>s('3adiol')=='h', section:'androgen', label:'High 5α,3α-Androstanediol (elevated DHT activity / PCOS)', products:[
   {n:'DIM Liposome', w:'Reduces upstream DHT that converts to 3α-diol; modulates androgen receptor activation'},
@@ -721,7 +722,7 @@ const RULES = [
   {n:'HPA Axis LF', w:'Ashwagandha + pituitary/hypothalamus/adrenal glandulars to restore HPA axis communication'},
   {n:'Licro Intrinsic', w:'Licorice root inhibits cortisol breakdown (11β-HSD2), effectively increasing cortisol half-life'},
   {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor: cortisol is synthesized from pregnenolone → progesterone → 17-OH-progesterone → cortisol'},
-  {n:'DHEA Liposomal Drops', w:'DHEA inversely balances cortisol; low DHEA often co-occurs with low cortisol in late-stage adrenal fatigue'},
+  {n:'DHEA Liposomal Drops', w:'DHEA co-depletion commonly accompanies low cortisol in adrenal fatigue; both reflect diminished adrenocortical reserve; restoring DHEA supports overall adrenal output'},
 ]},
 {id:'TotCort_h', cond:()=>s('TotCort')=='h', section:'adrenal', label:'High Total Cortisol', products:[
   {n:'HPA Axis LF', w:'Ashwagandha (proven adaptogen to lower cortisol) + pituitary glandular to downregulate HPA axis hyperactivity'},
@@ -731,8 +732,8 @@ const RULES = [
   {n:'Adreno Code', w:'Homeopathic adrenal drainage to help regulate cortisol rhythm'},
 ]},
 {id:'TotCorts_l', cond:()=>s('TotCorts')=='l', section:'adrenal', label:'Low Total Cortisone', products:[
-  {n:'Adrenal LF', w:'Mirrors low cortisol pattern; supports overall adrenal cortex output'},
-  {n:'Licro Intrinsic', w:'Licorice inhibits 11β-HSD2 converting cortisol → cortisone; raising cortisone as a result'},
+  {n:'Adrenal LF', w:'Mirrors low cortisol pattern; supports overall adrenal cortex output; increasing cortisol substrate raises downstream cortisone'},
+  {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor support to restore adrenal steroidogenesis and cortisol/cortisone output'},
 ]},
 {id:'TotCorts_h', cond:()=>s('TotCorts')=='h', section:'adrenal', label:'High Total Cortisone', products:[
   {n:'HPA Axis LF', w:'Downregulates HPA axis hyperactivity driving cortisol/cortisone excess'},
@@ -824,9 +825,8 @@ const RULES = [
 {id:'Creat_l', cond:()=>s('Creat1')=='l'||s('Creat2')=='l'||s('CreatE')=='l'||s('CreatN')=='l'||s('CreatP')=='l', section:'creatinine', label:'Low Creatinine (dilute urine – possible over-hydration or poor concentration)', products:[
   {n:'Rena Code', w:'Sarcode organotherapy specifically indicated for kidney dysregulation including impaired urine concentration; supports renal tubular reabsorption and tissue integrity'},
 ], flag:'Low creatinine suggests dilute urine. Hormone values may appear falsely low. Consider retesting with strict morning void instructions. Evaluate hydration habits and kidney function.'},
-{id:'Creat_h', cond:()=>s('Creat1')=='h'||s('Creat2')=='h'||s('CreatE')=='h'||s('CreatN')=='h'||s('CreatP')=='h', section:'creatinine', label:'High Creatinine (concentrated urine – possible dehydration)', products:[
-  {n:'Solidago Intrinsic', w:'Primary Physica renal botanical (goldenrod + horsetail + nettle); supports kidney decongestant function, healthy filtration, and urine flow — directly addresses concentrated/congested kidney state'},
-], flag:'High creatinine indicates concentrated urine. Hormone values may appear falsely elevated. Encourage adequate hydration (half body weight in oz water daily). Rule out elevated muscle catabolism.'},
+{id:'Creat_h', cond:()=>s('Creat1')=='h'||s('Creat2')=='h'||s('CreatE')=='h'||s('CreatN')=='h'||s('CreatP')=='h', section:'creatinine', label:'High Creatinine (elevated muscle catabolism – most likely sedentary lifestyle)', products:[
+], flag:'High urinary creatinine in this context most likely reflects increased muscle catabolism from a sedentary lifestyle, not a kidney drainage problem. Hormone values may appear falsely elevated. Primary intervention: increase daily movement and low-impact physical activity. Also ensure adequate hydration (half body weight in oz water daily). No supplement indicated.'},
 {id:'Mel_h', cond:()=>s('Mel1')=='h'||s('MelP')=='h', section:'melatonin', label:'High Melatonin', products:[
   {n:'Hypothal Code', w:'Homeopathic hypothalamic-pineal regulation to normalize circadian feedback mechanisms'},
 ], flag:'Elevated melatonin is uncommon. Consider light therapy, disrupted sleep architecture, or medication interaction. Evaluate lifestyle factors (light exposure, screen time). No specific Physica product to directly reduce melatonin.'},
@@ -870,11 +870,11 @@ const RULES = [
   {n:'MetaChlor', w:'Chlorella binds androgen metabolites in the GI tract, reducing enterohepatic recirculation of potent androgens'},
 ], flag:'High 5α-dominance (>2.5) indicates upregulated 5α-reductase activity, driving excess potent androgens (DHT, androsterone, 5α-DHT). Clinical correlates: PCOS, hirsutism, androgenic alopecia, BPH, insulin resistance, acne. Cross-reference DHT, 5α,3α-androstanediol, and testosterone levels. Note: Saw Palmetto is the gold-standard 5α-reductase inhibitor but is NOT in the Physica line — flag for alternate company recommendation.'},
 {id:'R_5aDom_l', cond:()=>s('R_5aDom')=='l', section:'ratios', label:'Low 5α-Dominance (Androsterone/Etiocholanolone <0.75 – 5β-reductase dominant / reduced 5α activity)', products:[
+  {n:'Thyro LF', w:'Primary intervention: thyroid hormones directly regulate 5α-reductase expression; hypothyroidism is a leading cause of reduced 5α activity and low androsterone/etiocholanolone ratio; Thyro LF (thyroid glandular + guggul + bladderwrack + coleus + ashwagandha) supports T4→T3 conversion and restores thyroid-driven 5α-reductase activity'},
   {n:'DHEA Liposomal Drops', w:'Restores upstream androstenedione/DHEA substrate, supporting androsterone and 5α-reductase pathway repletion'},
   {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor; supports overall steroidogenic flux including 5α-reduced pathway'},
   {n:'Adrenal LF', w:'Adrenal glandular support restores DHEA-S/androstenedione substrate pool driving androsterone production'},
-  {n:'Zinc-Oro Liposome Composite', w:'Zinc co-factor for steroidogenic enzymes including 5α-reductase; low zinc impairs 5α pathway activity'},
-], flag:'Low 5α-dominance (<0.75) indicates reduced 5α-reductase activity with relative 5β-reductase dominance. Clinical associations: low androgen states, adrenal insufficiency, hypothyroidism (5β-reductase is thyroid-regulated), and use of 5α-reductase inhibitors (finasteride, ketoconazole). Cross-reference DHEA, androsterone, etiocholanolone, and DHT. Low 5α-dominance with low total androgens suggests upstream precursor deficiency.'},
+], flag:'Low 5α-dominance (<0.75) indicates reduced 5α-reductase activity with relative 5β-reductase dominance. Most common driver is hypothyroidism — thyroid hormones are required for 5α-reductase expression. Also associated with low androgen states, adrenal insufficiency, and use of 5α-reductase inhibitors (finasteride, dutasteride). Always cross-reference thyroid status. Cross-reference DHEA, androsterone, etiocholanolone, and DHT.'},
 {id:'R_bPregE2_l', cond:()=>s('R_bPregE2')=='l', section:'ratios', label:'Low β-Pregnanediol/E2 Ratio (estrogen dominance)', products:[
   {n:'Dong Quai Intrinsic 1428', w:'Progesterone-supportive botanical blend (days 14–28) to raise progesterone metabolites relative to E2'},
   {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor to progesterone to raise β-pregnanediol'},
