@@ -544,7 +544,6 @@ const RULES = [
 {id:'E1_l', cond:()=>s('E1')=='l', section:'estrogen', label:'Low Estrone (E1)', products:[
   {n:'Cohosh Intrinsic 114', w:'Phytoestrogenic botanical blend to support estrogen precursor production (days 1–14 of cycle)'},
   {n:'DHEA Liposomal Drops', w:'Supplies DHEA → androstenedione → estrone conversion pathway'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor supporting entire estrogen cascade'},
   {n:'Maca Intrinsic', w:'Adaptogenic support for HPG axis to stimulate endogenous estrogen production'},
 ]},
 {id:'E1_h', cond:()=>s('E1')=='h', section:'estrogen', label:'High Estrone (E1)', products:[
@@ -556,7 +555,6 @@ const RULES = [
 {id:'E2_l', cond:()=>s('E2')=='l', section:'estrogen', label:'Low Estradiol (E2)', products:[
   {n:'Cohosh Intrinsic 114', w:'Black cohosh, dong quai, and ashwagandha to support estradiol via HPG axis stimulation'},
   {n:'DHEA Liposomal Drops', w:'DHEA serves as peripheral precursor to estradiol via aromatization'},
-  {n:'Pregnenolone Liposomal Drops', w:'Mother steroid → progesterone → androgen → estradiol cascade support'},
   {n:'Maca Intrinsic', w:'Hypothalamic-pituitary support for endogenous E2 stimulation'},
 ]},
 {id:'E2_h', cond:()=>s('E2')=='h', section:'estrogen', label:'High Estradiol (E2)', products:[
@@ -569,7 +567,7 @@ const RULES = [
 {id:'E3_l', cond:()=>s('E3')=='l', section:'estrogen', label:'Low Estriol (E3)', products:[
   {n:'Cohosh Intrinsic 114', w:'Supports HPG axis hormonal output including estriol production'},
   {n:'Maca Intrinsic', w:'Adaptogenic hypothalamic support may up-regulate estriol in peri/post-menopausal patients'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor supply for estriol synthesis via DHEA and androgen pathways'},
+  {n:'DHEA Liposomal Drops', w:'DHEA → androstenedione → estrone → estriol pathway; central precursor for all estrogens'},
 ]},
 {id:'E3_h', cond:()=>s('E3')=='h', section:'estrogen', label:'High Estriol (E3)', products:[
   {n:'HepataGest Powder', w:'Enhanced hepatic clearance of excess estriol conjugates'},
@@ -577,7 +575,6 @@ const RULES = [
 {id:'TotalE_l', cond:()=>s('TotalE')=='l', section:'estrogen', label:'Low Total Estrogen', products:[
   {n:'Cohosh Intrinsic 114', w:'Supports overall estrogenic milieu via phytoestrogenic and HPG axis botanical support'},
   {n:'DHEA Liposomal Drops', w:'Central adrenal precursor driving peripheral estrogen production'},
-  {n:'Pregnenolone Liposomal Drops', w:'Top-of-cascade steroid precursor replenishment'},
   {n:'Maca Intrinsic', w:'Adaptogenic HPG axis support for total estrogen production'},
 ]},
 {id:'TotalE_h', cond:()=>s('TotalE')=='h', section:'estrogen', label:'High Total Estrogen', products:[
@@ -591,13 +588,13 @@ const RULES = [
   {n:'DIM Liposome', w:'DIM potently induces CYP1A1 to increase 2-hydroxylation of E2 toward protective 2-OH pathway'},
   {n:'Methyl-B12 Liposome Spray', w:'B12/folate methylation cycle supports overall enzyme function and estrogen detox'},
   {n:'Solray-D3 + K2 Liposome Spray', w:'Vitamin D3 upregulates CYP1A1 activity and supports overall estrogen metabolism'},
-]},
+], flag:'NOTE (DUTCH guide): DIM and I3C induce CYP1A1 (the preferred 2-OH pathway) but also tend to lower total E1 and E2. If parent estrogens are already low, use DIM cautiously and prioritize estrogen support first.'},
 {id:'2OHE1_l', cond:()=>s('2OHE1')=='l', section:'estrogen', label:'Low 2-OH Estrone (poor CYP1A1)', products:[
   {n:'DIM Liposome', w:'Primary CYP1A1 inducer shifting estrone toward protective 2-OH pathway'},
   {n:'ExcEss', w:'Sulforaphane and DIM synergistically up-regulate Phase I 2-hydroxylation enzymes'},
   {n:'Methyl-B12 Liposome Spray', w:'Methylation cycle support to optimize downstream COMT activity on 2-OH products'},
   {n:'Solray-D3 + K2 Liposome Spray', w:'Vitamin D3 enhances CYP1A1 expression'},
-]},
+], flag:'NOTE (DUTCH guide): DIM and I3C induce CYP1A1 (the preferred 2-OH pathway) but also tend to lower total E1 and E2. If parent estrogens are already low, use DIM cautiously and prioritize estrogen support first.'},
 // 4-OH METABOLITES (generally want LOW – high is concerning)
 {id:'4OHE2_h', cond:()=>s('4OHE2')=='h', section:'estrogen', label:'High 4-OH Estradiol (elevated CYP1B1 / carcinogenic risk)', products:[
   {n:'DIM Liposome', w:'Shifts hydroxylation balance from CYP1B1 (4-OH) toward CYP1A1 (2-OH); reduces DNA quinone formation'},
@@ -616,8 +613,7 @@ const RULES = [
 {id:'16OHE1_h', cond:()=>s('16OHE1')=='h', section:'estrogen', label:'High 16α-OH Estrone (proliferative estrogen metabolite)', products:[
   {n:'DIM Liposome', w:'Potently shifts the 2:16 ratio by up-regulating 2-OH pathway via CYP1A1 induction'},
   {n:'ExcEss', w:'Full estrogen metabolism support: DIM + BroccoRaphanin specifically affects 2:16 ratio'},
-  {n:'Methyl-B12 Liposome Spray', w:'Methylation support reduces overall inflammatory estrogen burden'},
-  {n:'Solray-D3 + K2 Liposome Spray', w:'Vitamin D shown to shift 2:16 ratio favorably'},
+  {n:'Solray-D3 + K2 Liposome Spray', w:'Vitamin D shown to shift 2:16 ratio favorably via CYP1A1 upregulation'},
 ]},
 // MeO METABOLITES (want HIGH – low means poor COMT)
 {id:'2MeOE2_l', cond:()=>s('2MeOE2')=='l', section:'estrogen', label:'Low 2-MeO Estradiol (poor COMT methylation)', products:[
@@ -640,24 +636,24 @@ const RULES = [
 // ── ANDROGENS ───────────────────────────────────────────────
 {id:'T_l', cond:()=>s('T')=='l', section:'androgen', label:'Low Testosterone', products:[
   {n:'DHEA Liposomal Drops', w:'DHEA is the primary adrenal precursor to testosterone via androstenedione; nanosphere liposome maximizes absorption'},
-  {n:'Pregnenolone Liposomal Drops', w:'Mother steroid → DHEA → androstenedione → testosterone cascade support'},
   {n:'Maca Intrinsic', w:'Peruvian maca root supports testosterone production via HPG axis adaptogenic activity'},
   {n:'Adrenal LF', w:'Adrenal glandular + rhodiola + eleuthero supports adrenal androgen production'},
   {n:'Zinc-Oro Liposome Composite', w:'Zinc is essential for LH pulsatility and Leydig cell testosterone synthesis; zinc deficiency impairs testosterone'},
   {n:'HPA Axis LF', w:'Ashwagandha + pituitary/adrenal glandulars support HPG axis communication for testosterone production'},
 ]},
 {id:'T_h_female', cond:()=>s('T')=='h'&&currentSex=='female', section:'androgen', label:'High Testosterone (Female – PCOS pattern)', products:[
+  {n:'Juniper Intrinsic', w:'Contains saw palmetto, pygeum, stinging nettle, and pumpkin seed — natural 5α-reductase inhibitors confirmed by DUTCH guide to reduce androgenic burden in females'},
   {n:'DIM Liposome', w:'DIM modulates androgen/estrogen balance; supports shift of excess T toward beneficial estrogen metabolites'},
   {n:'Maca Intrinsic', w:'Adaptogenic modulator of HPG axis that can help normalize androgen excess in PCOS'},
   {n:'HepataGest Powder', w:'Liver support for androgen metabolism and clearance'},
-], flag:'Elevated testosterone in females often indicates PCOS, adrenal excess, or insulin resistance. Consider Saw Palmetto (5α-reductase inhibitor) — NOT currently in the Physica line. Please provide an alternate company for this specific marker.'},
+], flag:'Elevated testosterone in females often indicates PCOS, adrenal excess, or insulin resistance. Juniper Intrinsic (saw palmetto + pygeum + nettle) provides 5α-reductase inhibition within the Physica line. For additional dedicated saw palmetto dosing, consider an alternate company product.'},
 {id:'T_h_male', cond:()=>s('T')=='h'&&currentSex=='male', section:'androgen', label:'High Testosterone (Male)', products:[
   {n:'DIM Liposome', w:'Supports healthy T metabolism; promotes 2-OH pathway over DHT/aromatization'},
   {n:'HepataGest Powder', w:'Hepatic clearance of T metabolites and testosterone-binding proteins'},
 ], flag:'Isolated high T in males may reflect supplementation, CAH, or reduced SHBG. Evaluate downstream DHT and estrogen metabolites. No Physica product directly suppresses testosterone production.'},
 {id:'A4_l', cond:()=>s('A4')=='l', section:'androgen', label:'Low Androstenedione', products:[
-  {n:'DHEA Liposomal Drops', w:'DHEA directly converts to androstenedione via 3β-HSD; replenishing DHEA supports A4 levels'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor cascade: pregnenolone → DHEA → androstenedione'},
+  {n:'DHEA Liposomal Drops', w:'DHEA directly converts to androstenedione via 3β-HSD; replenishing DHEA is the most targeted intervention for low A4'},
+  {n:'Adrenal LF', w:'Adrenal glandular support restores adrenocortical output of DHEA-S and androstenedione'},
 ]},
 {id:'A4_h', cond:()=>s('A4')=='h', section:'androgen', label:'High Androstenedione', products:[
   {n:'DIM Liposome', w:'Modulates androgen/estrogen balance; promotes healthier downstream metabolism of androstenedione'},
@@ -668,22 +664,23 @@ const RULES = [
   {n:'Glutathione (GSH) Liposome', w:'Phase II liver detoxification support'},
 ]},
 {id:'DHT_h', cond:()=>s('DHT')=='h', section:'androgen', label:'High 5α-DHT', products:[
-  {n:'DIM Liposome', w:'Di-indolylmethane modulates DHT pathway and reduces 5α-reductase activity indirectly'},
-  {n:'Zinc-Oro Liposome Composite', w:'Zinc inhibits 5α-reductase activity, reducing conversion of T to DHT'},
+  {n:'Juniper Intrinsic', w:'Contains saw palmetto, pygeum, stinging nettle, and pumpkin seed — natural 5α-reductase inhibitors confirmed by DUTCH guide as primary natural DHT blockers'},
+  {n:'Zinc-Oro Liposome Composite', w:'Zinc directly inhibits 5α-reductase activity, reducing conversion of testosterone to DHT'},
   {n:'Glutathione (GSH) Liposome', w:'Supports phase II hepatic clearance of DHT metabolites'},
-], flag:'For high DHT (BPH, androgenic alopecia, female hirsutism): Saw Palmetto is the gold-standard 5α-reductase inhibitor — NOT available in the Physica line. Please provide an alternate company to address this marker specifically.'},
+], flag:'High DHT indicates excess 5α-reductase activity. Juniper Intrinsic (saw palmetto + pygeum + nettle) provides meaningful 5α-reductase inhibition within the Physica line. For cases requiring dedicated therapeutic-dose saw palmetto (320 mg/day), consider supplementing with an alternate company product.'},
 {id:'DHT_l', cond:()=>s('DHT')=='l', section:'androgen', label:'Low 5α-DHT', products:[
   {n:'DHEA Liposomal Drops', w:'Increases upstream testosterone available for 5α-reductase conversion to DHT'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor to support testosterone and downstream DHT synthesis'},
   {n:'Adrenal LF', w:'Supports adrenal androgen output (DHEA/androstenedione) as substrate for DHT pathway'},
+  {n:'Thyro LF', w:'Thyroid hormones directly regulate 5α-reductase expression; low DHT often co-occurs with hypothyroid-driven 5α hypoactivity'},
 ]},
 {id:'3adiol_h', cond:()=>s('3adiol')=='h', section:'androgen', label:'High 5α,3α-Androstanediol (elevated DHT activity / PCOS)', products:[
-  {n:'DIM Liposome', w:'Reduces upstream DHT that converts to 3α-diol; modulates androgen receptor activation'},
+  {n:'Juniper Intrinsic', w:'Saw palmetto, pygeum, stinging nettle, and pumpkin seed reduce upstream DHT via 5α-reductase inhibition, decreasing 3α-diol production'},
   {n:'Zinc-Oro Liposome Composite', w:'5α-reductase inhibition reduces DHT and downstream 3α-diol production'},
-], flag:'High 3α-diol suggests elevated peripheral androgen activity (PCOS, androgenic alopecia, BPH). Saw Palmetto — NOT in Physica. Please provide an alternate company.'},
+  {n:'DIM Liposome', w:'Modulates androgen receptor activation and shifts androgen metabolism toward less potent pathways'},
+], flag:'High 3α-diol indicates elevated peripheral DHT activity (PCOS, androgenic alopecia, BPH). Juniper Intrinsic provides 5α-reductase inhibition within the Physica line. For cases requiring dedicated therapeutic-dose saw palmetto, consider an alternate company product.'},
 {id:'3adiol_l', cond:()=>s('3adiol')=='l', section:'androgen', label:'Low 5α,3α-Androstanediol (reduced androgen activity)', products:[
-  {n:'DHEA Liposomal Drops', w:'Upstream DHEA → T → DHT → 3α-diol pathway support'},
-  {n:'Pregnenolone Liposomal Drops', w:'Precursor cascade support'},
+  {n:'DHEA Liposomal Drops', w:'Upstream DHEA → T → DHT → 3α-diol pathway support; DHEA is the correct branch point for androgen cascade'},
+  {n:'Adrenal LF', w:'Adrenal glandular support restores DHEA-S and androstenedione substrate pool driving downstream androgen production'},
 ]},
 
 // ── PROGESTERONE METABOLITES ─────────────────────────────────
@@ -835,7 +832,7 @@ const RULES = [
 {id:'R_E3E1E2_l', cond:()=>s('R_E3E1E2')=='l', section:'ratios', label:'Low E3/(E1+E2) Ratio (low estriol relative to E1/E2)', products:[
   {n:'Cohosh Intrinsic 114', w:'Black cohosh and dong quai support estriol production and HPG axis balance'},
   {n:'Maca Intrinsic', w:'Adaptogenic HPG axis support to up-regulate estriol production'},
-  {n:'Pregnenolone Liposomal Drops', w:'Precursor support for overall estrogen production with estriol pathway'},
+  {n:'DHEA Liposomal Drops', w:'DHEA → androstenedione → estrone → estriol pathway; supports estriol as the downstream protective estrogen'},
 ]},
 {id:'R_2OH16_l', cond:()=>s('R_2OH16')=='l', section:'ratios', label:'Low 2:16 Ratio (elevated carcinogenic 16α-OH relative to protective 2-OH)', products:[
   {n:'DIM Liposome', w:'Most evidence-based intervention for 2:16 ratio: induces CYP1A1 (2-OH) while reducing 16-OH pathway'},
@@ -863,18 +860,16 @@ const RULES = [
   {n:'Glutathione (GSH) Liposome', w:'Direct glutathione supplementation to bind reactive estrogen quinones'},
 ]},
 {id:'R_5aDom_h', cond:()=>s('R_5aDom')=='h', section:'ratios', label:'High 5α-Dominance (Androsterone/Etiocholanolone >2.5 – 5α-reductase overactivation)', products:[
-  {n:'DIM Liposome', w:'DIM modulates androgen metabolism and indirectly reduces 5α-reductase activity; shifts androgen metabolites toward less potent pathways'},
+  {n:'Juniper Intrinsic', w:'Saw palmetto, pygeum, stinging nettle, pumpkin seed — direct 5α-reductase inhibitors confirmed by DUTCH guide as primary natural intervention for high 5α-dominance'},
   {n:'Zinc-Oro Liposome Composite', w:'Zinc is a direct 5α-reductase inhibitor; reduces conversion of testosterone/androstenedione down the 5α pathway'},
-  {n:'Estro Intrinsic', w:'Estrogen-supporting botanicals modulate androgen:estrogen balance; high 5α-dominance often co-occurs with relative estrogen deficiency'},
+  {n:'DIM Liposome', w:'Modulates androgen metabolism and shifts androgen metabolites toward less potent pathways'},
   {n:'HepataGest Powder', w:'Hepatic Phase I/II support enhances androgen metabolite clearance; liver handles androsterone glucuronidation for excretion'},
-  {n:'MetaChlor', w:'Chlorella binds androgen metabolites in the GI tract, reducing enterohepatic recirculation of potent androgens'},
-], flag:'High 5α-dominance (>2.5) indicates upregulated 5α-reductase activity, driving excess potent androgens (DHT, androsterone, 5α-DHT). Clinical correlates: PCOS, hirsutism, androgenic alopecia, BPH, insulin resistance, acne. Cross-reference DHT, 5α,3α-androstanediol, and testosterone levels. Note: Saw Palmetto is the gold-standard 5α-reductase inhibitor but is NOT in the Physica line — flag for alternate company recommendation.'},
+], flag:'High 5α-dominance (>2.5) indicates upregulated 5α-reductase activity driving excess potent androgens (DHT, androsterone). Clinical correlates: PCOS, hirsutism, androgenic alopecia, BPH, insulin resistance, acne. Juniper Intrinsic provides 5α-reductase inhibition within the Physica line. Cross-reference DHT, 5α,3α-androstanediol, and testosterone levels.'},
 {id:'R_5aDom_l', cond:()=>s('R_5aDom')=='l', section:'ratios', label:'Low 5α-Dominance (Androsterone/Etiocholanolone <0.75 – 5β-reductase dominant / reduced 5α activity)', products:[
-  {n:'Thyro LF', w:'Primary intervention: thyroid hormones directly regulate 5α-reductase expression; hypothyroidism is a leading cause of reduced 5α activity and low androsterone/etiocholanolone ratio; Thyro LF (thyroid glandular + guggul + bladderwrack + coleus + ashwagandha) supports T4→T3 conversion and restores thyroid-driven 5α-reductase activity'},
+  {n:'Thyro LF', w:'Primary intervention: thyroid hormones directly regulate 5α-reductase expression; hypothyroidism is the leading cause of reduced 5α activity; restoring thyroid function increases androsterone while simultaneously reducing substrate shunted to the 5β pathway'},
   {n:'DHEA Liposomal Drops', w:'Restores upstream androstenedione/DHEA substrate, supporting androsterone and 5α-reductase pathway repletion'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream steroid precursor; supports overall steroidogenic flux including 5α-reduced pathway'},
   {n:'Adrenal LF', w:'Adrenal glandular support restores DHEA-S/androstenedione substrate pool driving androsterone production'},
-], flag:'Low 5α-dominance (<0.75) indicates reduced 5α-reductase activity with relative 5β-reductase dominance. Most common driver is hypothyroidism — thyroid hormones are required for 5α-reductase expression. Also associated with low androgen states, adrenal insufficiency, and use of 5α-reductase inhibitors (finasteride, dutasteride). Always cross-reference thyroid status. Cross-reference DHEA, androsterone, etiocholanolone, and DHT.'},
+], flag:'Low 5α-dominance (<0.75) indicates reduced 5α-reductase activity with concurrent substrate shunting toward the 5β pathway — the result is relatively elevated etiocholanolone alongside depressed androsterone. Because 5α and 5β compete for the same substrates, restoring 5α-reductase activity (primarily via thyroid support) corrects the ratio from both directions simultaneously. Most common driver is hypothyroidism — thyroid hormones are required for 5α-reductase gene expression. Also associated with low androgen states, adrenal insufficiency, and use of 5α-reductase inhibitors (finasteride, dutasteride). Always cross-reference thyroid status, DHEA, and total androgens.'},
 {id:'R_bPregE2_l', cond:()=>s('R_bPregE2')=='l', section:'ratios', label:'Low β-Pregnanediol/E2 Ratio (estrogen dominance)', products:[
   {n:'Dong Quai Intrinsic 1428', w:'Progesterone-supportive botanical blend (days 14–28) to raise progesterone metabolites relative to E2'},
   {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor to progesterone to raise β-pregnanediol'},
@@ -887,9 +882,8 @@ const RULES = [
 ]},
 {id:'R_TEpiT_l', cond:()=>s('R_TEpiT')=='l', section:'ratios', label:'Low T/Epi-T Ratio (androgen deficiency / impaired T synthesis)', products:[
   {n:'DHEA Liposomal Drops', w:'DHEA is the primary precursor to testosterone; raises T to improve T/Epi-T ratio'},
-  {n:'Pregnenolone Liposomal Drops', w:'Precursor support up the steroid cascade'},
   {n:'Maca Intrinsic', w:'Testosterone-supportive HPG axis adaptogen'},
-  {n:'Adrenal LF', w:'Adrenal support for androgen production'},
+  {n:'Adrenal LF', w:'Adrenal support for androgen production; contains eleuthero, rhodiola, adrenal glandular'},
   {n:'Zinc-Oro Liposome Composite', w:'Zinc is essential for testosterone synthesis; deficiency dramatically reduces T/Epi-T ratio'},
 ]},
 {id:'R_CortCorts_h', cond:()=>s('R_CortCorts')=='h', section:'ratios', label:'High Cortisol/Cortisone Ratio (elevated 11β-HSD1 – metabolic syndrome risk)', products:[
@@ -914,19 +908,26 @@ const RULES = [
 
 // ── ENDOCRINE DISRUPTORS ──────────────────────────────────────
 {id:'BPA_h', cond:()=>s('BPA')=='h', section:'edcs', label:'High BPA (Bisphenol A)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula specifically indicated for xenoestrogens and hormonal disruptors; primary Physica intervention for BPA burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder (zeolite, bentonite clay, modified citrus pectin, activated charcoal, microchitosan, silica) captures BPA and xenobiotics across multiple binding mechanisms for elimination'},
   {n:'Xeno BioForce', w:'Targeted botanical formula to support detoxification of xenoestrogens including BPA'},
   {n:'MetaChlor', w:'Broken-cell wall chlorella binds BPA and xeno-hormones in the gut for fecal excretion'},
+  {n:'ExcEss', w:'DIM + sulforaphane (NRF2/phase II induction) + calcium-d-glucarate (glucuronidation support) — comprehensive estrogenic EDC detox; DUTCH guide confirms these pathways for xenoestrogen clearance'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II hepatic conjugation of BPA glucuronide and sulfate conjugates'},
   {n:'HepataGest Powder', w:'Liver/gallbladder support for phase I and II BPA detoxification'},
   {n:'NAC Forte', w:'Supports glutathione production for enhanced BPA conjugation'},
 ]},
 {id:'Atrazine_h', cond:()=>s('Atrazine')=='h', section:'edcs', label:'High Atrazine (herbicide)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula specifically indicated for insecticide, pesticide, and fertilizer detoxification — primary Physica intervention for atrazine burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder captures herbicide residues via zeolite, bentonite clay, activated charcoal, and modified citrus pectin for gut-mediated elimination'},
   {n:'Xeno BioForce', w:'Botanical detoxification support for organochlorine/herbicide burden'},
   {n:'MetaChlor', w:'Chlorella binds herbicides and pesticides for excretion'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II detoxification support for atrazine conjugation'},
   {n:'HepataGest Powder', w:'Hepatic detoxification and biliary excretion enhancement'},
 ]},
 {id:'Glyph_h', cond:()=>s('Glyph')=='h', section:'edcs', label:'High Glyphosate', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula specifically indicated for pesticide/herbicide detoxification — primary Physica intervention for glyphosate burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder (zeolite, bentonite clay, MCP, activated charcoal) captures glyphosate across multiple binding mechanisms for elimination'},
   {n:'Xeno BioForce', w:'Botanical detox formula to support elimination of organophosphate herbicide burden'},
   {n:'MetaChlor', w:'Chlorella adsorbs glyphosate for gut-mediated excretion; Chlorella Growth Factor supports detox'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II hepatic glyphosate conjugation and detoxification'},
@@ -934,25 +935,33 @@ const RULES = [
   {n:'NAC Forte', w:'Cysteine/glutathione precursor for enhanced detox capacity'},
 ]},
 {id:'Phthalate_h', cond:()=>s('MEtP')=='h'||s('MEHP')=='h'||s('MEHHP')=='h'||s('MEOHP')=='h', section:'edcs', label:'High Phthalates (MEtP / MEHP / MEHHP / MEOHP)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula for xenoestrogens and hormonal disruptors — primary Physica intervention for phthalate burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder captures phthalate metabolites for elimination via zeolite, bentonite clay, modified citrus pectin, and activated charcoal'},
   {n:'Xeno BioForce', w:'Xenoestrogen detoxification botanical formula targeting phthalate burden'},
   {n:'MetaChlor', w:'Chlorella binds phthalate metabolites in the gut for elimination'},
+  {n:'ExcEss', w:'DIM + sulforaphane (NRF2/phase II induction) + calcium-d-glucarate — restores healthy estrogen pathways disrupted by phthalate estrogenicity; DUTCH guide confirms glucuronidation support for EDC clearance'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II phthalate glucuronidation and sulfation support'},
-  {n:'DIM Liposome', w:'Phthalates disrupt estrogen metabolism; DIM supports restoration of healthy estrogen pathways'},
 ]},
 {id:'Paraben_h', cond:()=>s('MethylP')=='h'||s('EthylP')=='h'||s('ButylP')=='h'||s('PropylP')=='h', section:'edcs', label:'High Parabens (Methyl / Ethyl / Butyl / Propyl)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula for xenoestrogens and hormone disruptors — primary Physica intervention for paraben burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder captures parabens for gut-mediated elimination via zeolite, bentonite clay, MCP, and activated charcoal'},
   {n:'Xeno BioForce', w:'Botanical blend targeting estrogenic xenobiotic elimination including parabens'},
   {n:'MetaChlor', w:'Chlorella binds parabens in the intestinal lumen for fecal excretion'},
+  {n:'ExcEss', w:'DIM + sulforaphane + calcium-d-glucarate — restores normal estrogen receptor signaling and phase II clearance pathways disrupted by paraben estrogenicity'},
   {n:'Glutathione (GSH) Liposome', w:'Paraben detoxification via phase II conjugation'},
-  {n:'DIM Liposome', w:'Parabens mimic estrogen by binding ER; DIM helps restore normal estrogen receptor signaling'},
   {n:'HepataGest Powder', w:'Hepatic paraben detoxification and biliary excretion'},
 ]},
 {id:'TCS_h', cond:()=>s('TCS')=='h', section:'edcs', label:'High Triclosan (TCS)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula for xenoestrogens and hormone/nerve disruptors — primary Physica intervention for triclosan burden'},
+  {n:'Holo-Plexus', w:'Multi-target binder captures triclosan and xenobiotics for fecal elimination via zeolite, bentonite clay, MCP, and activated charcoal'},
   {n:'Xeno BioForce', w:'Botanical xenobiotic detoxification formula targeting triclosan elimination'},
   {n:'MetaChlor', w:'Chlorella binds triclosan and xenobiotics for fecal excretion'},
   {n:'Glutathione (GSH) Liposome', w:'Phase II hepatic triclosan conjugation support'},
   {n:'HepataGest Powder', w:'Liver and gallbladder drainage for triclosan excretion'},
 ]},
 {id:'PERC_h', cond:()=>s('PERC')=='h', section:'edcs', label:'High Perchlorate (competitive iodine inhibition)', products:[
+  {n:'Pesticide-Tox', w:'Physica homeopathic formula for environmental toxicants and hormone disruptors — supports perchlorate detoxification via lymphatic and organotherapy drainage'},
+  {n:'Holo-Plexus', w:'Multi-target binder supports elimination of environmental toxicants including perchlorate via multiple binding mechanisms'},
   {n:'Laminaria', w:'Iodine-rich seaweed that competitively blocks perchlorate at the sodium-iodide symporter (NIS) in thyroid; helps restore iodine uptake'},
   {n:'Xeno BioForce', w:'Botanical detoxification support for environmental toxicants'},
   {n:'Glutathione (GSH) Liposome', w:'Antioxidant support for oxidative stress from thyroid disruption'},
