@@ -868,16 +868,17 @@ const RULES = [
   {n:'DHEA Liposomal Drops', w:'Restores upstream androstenedione/DHEA substrate, supporting androsterone and 5α-reductase pathway repletion'},
   {n:'Adrenal LF', w:'Adrenal glandular support restores DHEA-S/androstenedione substrate pool driving androsterone production'},
 ], flag:'Low 5α-dominance (<0.75) indicates reduced 5α-reductase activity with concurrent substrate shunting toward the 5β pathway — the result is relatively elevated etiocholanolone alongside depressed androsterone. Because 5α and 5β compete for the same substrates, restoring 5α-reductase activity (primarily via thyroid support) corrects the ratio from both directions simultaneously. Most common driver is hypothyroidism — thyroid hormones are required for 5α-reductase gene expression. Also associated with low androgen states, adrenal insufficiency, and use of 5α-reductase inhibitors (finasteride, dutasteride). Always cross-reference thyroid status, DHEA, and total androgens.'},
-{id:'R_bPregE2_l', cond:()=>s('R_bPregE2')=='l'||(s('bPreg')=='l'&&s('E2')!='l'), section:'ratios', label:'Low β-Pregnanediol/E2 Ratio (estrogen dominance)', products:[
-  {n:'Dong Quai Intrinsic 1428', w:'Progesterone-supportive botanical blend (days 14–28) to raise progesterone metabolites relative to E2'},
-  {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor to progesterone to raise β-pregnanediol'},
-  {n:'DIM Liposome', w:'Helps reduce E2 (denominator) to improve ratio'},
-  {n:'Maca Intrinsic', w:'HPG axis adaptogen to improve progesterone/estrogen balance'},
-]},
-{id:'R_bPregE2_h', cond:()=>s('R_bPregE2')=='h'||(s('E2')=='l'&&s('bPreg')!='l'), section:'ratios', label:'High β-Pregnanediol/E2 Ratio (low E2 / luteal phase defect indicator)', products:[
-  {n:'Cohosh Intrinsic 114', w:'Supports E2 production (days 1–14) to raise E2 denominator of ratio'},
-  {n:'DHEA Liposomal Drops', w:'DHEA → androstenedione → E2 via aromatase; raises E2 to improve ratio'},
-]},
+{id:'R_bPregE2_l', cond:()=>s('R_bPregE2')=='l'||(s('bPreg')=='l'&&s('E2')!='l'), section:'ratios', label:'Low β-Pregnanediol/E2 Ratio (estrogen dominant / relative progesterone insufficiency)', products:[
+  {n:'Dong Quai Intrinsic 1428', w:'Progesterone-supportive botanical blend (days 14–28 / luteal phase) to raise progesterone metabolites relative to E2'},
+  {n:'Pregnenolone Liposomal Drops', w:'Upstream precursor for progesterone synthesis; pregnenolone → progesterone → β-pregnanediol'},
+  {n:'DIM Liposome', w:'Reduces E2 denominator by shifting estrogen metabolism toward 2-OH pathway, improving ratio from below'},
+  {n:'Maca Intrinsic', w:'HPG axis adaptogen supporting progesterone/estrogen balance'},
+], flag:'Low β-Pregnanediol/E2 indicates estrogen dominance — E2 is elevated relative to progesterone output. Classic presentation: luteal phase insufficiency, PMS, heavy/irregular cycles, fibrocystic changes, uterine fibroids. Primary intervention is raising progesterone, secondarily reducing E2 excess. Cross-reference bPreg, E2, and total estrogen markers individually.'},
+{id:'R_bPregE2_h', cond:()=>s('R_bPregE2')=='h'||(s('E2')=='l'&&s('bPreg')!='l'), section:'ratios', label:'High β-Pregnanediol/E2 Ratio (progesterone dominant / estrogen deficient)', products:[
+  {n:'Cohosh Intrinsic 114', w:'Black cohosh, dong quai, ashwagandha — phytoestrogenic and HPG axis support to raise E2 denominator'},
+  {n:'DHEA Liposomal Drops', w:'DHEA → androstenedione → E2 via aromatase; most direct precursor pathway to raise E2 when deficient'},
+  {n:'Maca Intrinsic', w:'Adaptogenic HPG axis support for endogenous estrogen production'},
+], flag:'High β-Pregnanediol/E2 indicates progesterone dominance relative to estrogen — the numerator (progesterone metabolite) is elevated while E2 is insufficient. Common drivers: estrogen deficiency (perimenopause, post-menopause, HPA suppression of HPG), or exogenous progesterone supplementation elevating the numerator. NOT a luteal phase defect — that is a low ratio pattern. Cross-reference total estrogens, E2, allopregnanolone, and medication/supplement history. If patient is on progesterone cream or oral progesterone, ratio elevation may be expected and no intervention is needed.'},
 {id:'R_TEpiT_l', cond:()=>s('R_TEpiT')=='l'||(s('T')=='l'||(s('T')=='n'&&s('EpiT')=='h')), section:'ratios', label:'Low T/Epi-T Ratio (androgen deficiency / impaired T synthesis)', products:[
   {n:'DHEA Liposomal Drops', w:'DHEA is the primary precursor to testosterone; raises T to improve T/Epi-T ratio'},
   {n:'Maca Intrinsic', w:'Testosterone-supportive HPG axis adaptogen'},
